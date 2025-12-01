@@ -263,7 +263,7 @@
       opacity: 1;
     }
 
-    /* Header */
+    /* Header (Left side logo) */
     .header {
       position: fixed;
       top: 20px;
@@ -286,6 +286,44 @@
       text-shadow: 
         0 0 20px rgba(0, 240, 255, 0.6),
         0 0 40px rgba(0, 240, 255, 0.4);
+    }
+
+    /* --- NEW GROUP BUY BUTTON (Top Right) --- */
+    .group-buy-button {
+      position: fixed;
+      top: 40px;
+      right: 40px;
+      z-index: 30;
+      
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #38bdf8; /* Cyan text */
+      text-decoration: none;
+      
+      /* Glassmorphism style matching the pill */
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 99px;
+      
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .group-buy-button:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: #38bdf8;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+      color: #ffffff;
     }
 
     /* Content */
@@ -378,7 +416,7 @@
         0 0 20px rgba(0, 240, 255, 0.3), 
         inset 0 0 15px rgba(0, 240, 255, 0.1);
         
-      /* Default Animation for Desktop (No X transform needed) */
+      /* Default Animation for Desktop */
       animation: floatPill 5s ease-in-out infinite;
       transition: all 0.3s ease;
     }
@@ -436,7 +474,7 @@
     /* Mobile Specific Animation (Includes X Centering) */
     @keyframes floatPillMobile {
       0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-4px); } /* Small subtle float */
+      50% { transform: translateX(-50%) translateY(-4px); }
     }
 
     @keyframes pulseDot {
@@ -551,7 +589,7 @@
         transform: translateX(-50%);
       }
       .brand-name { font-size: 1.25rem; }
-      /* Cursor styling removed */
+      
       .text-line1 { font-size: 2.2rem; }
       .text-line2 { font-size: 1.6rem; }
       .access-button {
@@ -565,16 +603,20 @@
         bottom: 80px !important;
         right: auto !important;
         left: 50% !important;
-        /* Using keyframe animation for transform now, so removing static transform here
-           to avoid conflict, but we need an initial state or the animation handles it. */
-        /* width: fit-content; */
         padding: 8px 16px;
         gap: 12px;
         font-size: 0.75rem;
         max-width: 90vw;
         background: rgba(10, 20, 40, 0.8);
-        /* Apply Mobile Animation that includes Centering */
         animation: floatPillMobile 4s ease-in-out infinite !important;
+      }
+      
+      /* Mobile tweaks for the new button */
+      .group-buy-button {
+        top: 20px;
+        right: 20px;
+        padding: 8px 16px;
+        font-size: 0.7rem;
       }
 
       /* Preloader Responsive Tweaks */
@@ -635,10 +677,19 @@
     <!-- Header with logo -->
     <header class="header">
       <div class="header-logo">
-        <!-- REMOVED CURSOR SPAN -->
         <span class="brand-name">COURSEBUSTERS</span>
       </div>
     </header>
+
+    <!-- NEW GROUP BUY BUTTON -->
+    <a 
+      href="https://t.me/gbuyb" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="group-buy-button"
+    >
+      Group Buy Access
+    </a>
 
     <!-- Main content (Logo & Button) -->
     <div class="content">
