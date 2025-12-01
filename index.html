@@ -21,7 +21,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    /* --- UPDATED PRELOADER STYLES (MATCHING BLUE IMAGE) --- */
+    /* --- PRELOADER STYLES (MATCHING BLUE IMAGE) --- */
     .preloader {
       position: fixed;
       inset: 0;
@@ -70,7 +70,6 @@
       position: relative;
       padding: 32px 36px;
       border-radius: 20px;
-      /* Darker Blue Glass Background */
       background: linear-gradient(
         135deg,
         rgba(30, 41, 59, 0.7),
@@ -78,7 +77,6 @@
       );
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
-      /* Cyan/Blue Border Tint */
       border: 1px solid rgba(56, 189, 248, 0.3);
       box-shadow: 0 24px 60px rgba(2, 6, 23, 0.8),
         0 0 40px rgba(14, 165, 233, 0.15),
@@ -96,13 +94,12 @@
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #38bdf8; /* Sky Blue */
+      color: #38bdf8;
       text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
       z-index: 2;
     }
 
     .preloader-inner::after {
-      /* Subtle light sweep */
       content: "";
       position: absolute;
       top: -40%;
@@ -120,12 +117,8 @@
     }
 
     @keyframes glassFloat {
-      0%, 100% {
-        transform: translateY(0) scale(1);
-      }
-      50% {
-        transform: translateY(-6px) scale(1.01);
-      }
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.01); }
     }
 
     .preloader-title {
@@ -142,7 +135,6 @@
       z-index: 2;
     }
 
-    /* Blue Dot */
     .preloader-title::before {
       content: "";
       width: 12px;
@@ -174,7 +166,7 @@
 
     .preloader-percent {
       font-variant-numeric: tabular-nums;
-      color: #38bdf8; /* Cyan Text */
+      color: #38bdf8;
       font-weight: 700;
       text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
     }
@@ -196,7 +188,6 @@
       inset: 0;
       border-radius: inherit;
       width: 0%;
-      /* CYAN GRADIENT */
       background: linear-gradient(90deg, #0ea5e9, #22d3ee, #0ea5e9);
       box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
       transition: width 0.12s ease-out;
@@ -232,7 +223,7 @@
     }
 
     .preloader-subtext span:last-child {
-      color: #38bdf8; /* Cyan Text */
+      color: #38bdf8;
       font-weight: 600;
       text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
     }
@@ -317,7 +308,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 48px;
+      /* Increased gap slightly since the pill is gone */
+      gap: 64px; 
       opacity: 1;
       transform: translateY(0);
     }
@@ -330,14 +322,8 @@
     }
 
     @keyframes breathe {
-      0%, 100% {
-        opacity: 0.85;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.02);
-      }
+      0%, 100% { opacity: 0.85; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
     }
 
     /* Animated Text Logo */
@@ -371,16 +357,18 @@
     }
 
     @keyframes floatText {
-      0%, 100% {
-        transform: translateY(0px) scale(1);
-      }
-      50% {
-        transform: translateY(-15px) scale(1.05);
-      }
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-15px) scale(1.05); }
     }
 
-    /* Status Pill */
+    /* --- MOVED STATUS PILL STYLES (Bottom Right) --- */
     .status-pill {
+      /* Positioning: Bottom Right */
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+      z-index: 20;
+
       display: flex;
       align-items: center;
       justify-content: center;
@@ -388,7 +376,7 @@
       padding: 10px 24px;
       white-space: nowrap;
       
-      background: rgba(10, 20, 40, 0.2); 
+      background: rgba(10, 20, 40, 0.4); 
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       
@@ -399,8 +387,6 @@
       font-size: 0.85rem;
       letter-spacing: 0.05em;
       font-weight: 500;
-      margin-top: -20px;
-      margin-bottom: -10px;
       
       box-shadow: 
         0 10px 30px rgba(0, 0, 0, 0.9), 
@@ -456,20 +442,8 @@
     }
 
     @keyframes floatPill {
-      0%, 100% { 
-        transform: translateY(0);
-        box-shadow: 
-          0 10px 30px rgba(0, 0, 0, 0.3),
-          0 0 20px rgba(0, 240, 255, 0.15),
-          inset 0 0 15px rgba(0, 240, 255, 0.05);
-      }
-      50% { 
-        transform: translateY(-6px);
-        box-shadow: 
-          0 15px 35px rgba(0, 0, 0, 0.2),
-          0 0 25px rgba(0, 240, 255, 0.2),
-          inset 0 0 15px rgba(0, 240, 255, 0.08);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     @keyframes pulseDot {
@@ -531,12 +505,8 @@
     }
 
     @keyframes buttonFloat {
-      0%, 100% {
-        transform: translateY(0px) rotateX(0deg);
-      }
-      50% {
-        transform: translateY(-8px) rotateX(2deg);
-      }
+      0%, 100% { transform: translateY(0px) rotateX(0deg); }
+      50% { transform: translateY(-8px) rotateX(2deg); }
     }
 
     .access-button::after {
@@ -597,13 +567,17 @@
       }
       .content { gap: 36px; }
       
+      /* Mobile Pill Positioning */
       .status-pill {
-        margin-top: -10px;
-        margin-bottom: 0px;
+        bottom: 24px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
         padding: 8px 16px;
         gap: 12px;
         font-size: 0.75rem;
         max-width: 90vw;
+        background: rgba(10, 20, 40, 0.8); /* More opacity on mobile for readability */
       }
 
       /* Preloader Responsive Tweaks */
@@ -669,43 +643,13 @@
       </div>
     </header>
 
-    <!-- Main content -->
+    <!-- Main content (Logo & Button) -->
     <div class="content">
       <div class="logo">
         <div class="animated-text">
           <span class="text-line1">COURSE BUSTERS</span>
           <span class="text-line2">ACCESS</span>
         </div>
-      </div>
-
-      <!-- Live Counter Pill -->
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        <span class="status-text">System Online</span>
-        
-        <span class="pill-divider"></span>
-        
-        <!-- Active Users: Replaced broken character with SVG Icon -->
-        <span style="display:flex; align-items:center; gap:6px;">
-          <svg class="status-icon" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-          <span><strong id="activeUsers">1,240</strong> active</span>
-        </span>
-        
-        <span class="pill-divider"></span>
-        
-        <!-- Total Members: Replaced broken character with SVG Icon -->
-        <span style="display:flex; align-items:center; gap:6px;">
-          <svg class="status-icon" viewBox="0 0 24 24">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
-          <span><strong id="totalMembers">45,200</strong> members</span>
-        </span>
       </div>
 
       <a
@@ -717,6 +661,36 @@
       >
         GEt access here
       </a>
+    </div>
+
+    <!-- Live Counter Pill (Moved to Bottom Right) -->
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      <span class="status-text">System Online</span>
+      
+      <span class="pill-divider"></span>
+      
+      <!-- Active Users: SVG Icon -->
+      <span style="display:flex; align-items:center; gap:6px;">
+        <svg class="status-icon" viewBox="0 0 24 24">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span><strong id="activeUsers">1,240</strong> active</span>
+      </span>
+      
+      <span class="pill-divider"></span>
+      
+      <!-- Total Members: SVG Icon -->
+      <span style="display:flex; align-items:center; gap:6px;">
+        <svg class="status-icon" viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        <span><strong id="totalMembers">45,200</strong> members</span>
+      </span>
     </div>
   </div>
 
