@@ -288,13 +288,19 @@
         0 0 40px rgba(0, 240, 255, 0.4);
     }
 
-    /* --- NEW GROUP BUY BUTTON (Top Right) --- */
-    .group-buy-button {
+    /* --- GROUP BUY CONTAINER (Top Right) --- */
+    .group-buy-container {
       position: fixed;
       top: 40px;
       right: 40px;
       z-index: 30;
-      
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px; /* Gap between button and stats */
+    }
+
+    .group-buy-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -307,7 +313,6 @@
       color: #38bdf8; /* Cyan text */
       text-decoration: none;
       
-      /* Glassmorphism style matching the pill */
       background: rgba(15, 23, 42, 0.5);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -324,6 +329,27 @@
       box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
       transform: translateY(-2px);
       color: #ffffff;
+    }
+
+    /* --- GROUP BUY STATS (Under button) --- */
+    .group-buy-stats {
+      font-size: 0.7rem;
+      color: rgba(226, 232, 240, 0.7);
+      text-align: right;
+      letter-spacing: 0.05em;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.3);
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid rgba(56, 189, 248, 0.15);
+      backdrop-filter: blur(4px);
+    }
+
+    .group-buy-stats strong {
+      color: #38bdf8;
+      font-weight: 600;
     }
 
     /* Content */
@@ -611,12 +637,19 @@
         animation: floatPillMobile 4s ease-in-out infinite !important;
       }
       
-      /* Mobile tweaks for the new button */
-      .group-buy-button {
+      /* Mobile tweaks for the new button container */
+      .group-buy-container {
         top: 20px;
         right: 20px;
+        align-items: flex-end; /* Keep aligned to right */
+      }
+      .group-buy-button {
         padding: 8px 16px;
         font-size: 0.7rem;
+      }
+      .group-buy-stats {
+        font-size: 0.6rem;
+        padding: 3px 10px;
       }
 
       /* Preloader Responsive Tweaks */
@@ -681,15 +714,22 @@
       </div>
     </header>
 
-    <!-- NEW GROUP BUY BUTTON -->
-    <a 
-      href="https://t.me/gbuyb" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      class="group-buy-button"
-    >
-      Group Buy Access
-    </a>
+    <!-- NEW GROUP BUY CONTAINER (Button + Stats) -->
+    <div class="group-buy-container">
+      <a 
+        href="https://t.me/gbuyb" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="group-buy-button"
+      >
+        Group Buy Access
+      </a>
+      <div class="group-buy-stats">
+        <span><strong id="gbActive">84</strong> active</span>
+        <span style="opacity: 0.4">|</span>
+        <span><strong id="gbTotal">2,150</strong> members</span>
+      </div>
+    </div>
 
     <!-- Main content (Logo & Button) -->
     <div class="content">
@@ -940,23 +980,52 @@
     (function () {
       const activeUsersEl = document.getElementById("activeUsers");
       const totalMembersEl = document.getElementById("totalMembers");
+      const gbActiveEl = document.getElementById("gbActive");
+      const gbTotalEl = document.getElementById("gbTotal");
+
       if (!activeUsersEl || !totalMembersEl) return;
 
+      // Main Access Counters
       let activeBase = 1240; 
+      let totalBase = 45200;
+
+      // Group Buy Counters
+      let gbActiveBase = 84;
+      let gbTotalBase = 2150;
+
       setInterval(() => {
+        // Main updates
         const delta = Math.floor(Math.random() * 30) - 15;
         activeBase = Math.max(900, activeBase + delta);
         activeUsersEl.textContent = activeBase.toLocaleString();
+
+        // Group Buy Active updates (slower, smaller variance)
+        if (Math.random() > 0.6) {
+            const gbDelta = Math.floor(Math.random() * 5) - 2;
+            gbActiveBase = Math.max(50, gbActiveBase + gbDelta);
+            if (gbActiveEl) gbActiveEl.textContent = gbActiveBase.toLocaleString();
+        }
       }, 3000 + Math.random() * 3000);
 
-      let totalBase = 45200;
       setInterval(() => {
+        // Main Total updates
         if (Math.random() > 0.3) {
             totalBase += 1;
             totalMembersEl.textContent = totalBase.toLocaleString();
             totalMembersEl.style.transition = "color 0.2s";
             totalMembersEl.style.color = "#00ff88"; 
             setTimeout(() => totalMembersEl.style.color = "#ffffff", 300);
+        }
+
+        // Group Buy Total updates
+        if (Math.random() > 0.7) {
+            gbTotalBase += 1;
+            if (gbTotalEl) {
+                gbTotalEl.textContent = gbTotalBase.toLocaleString();
+                gbTotalEl.style.transition = "color 0.2s";
+                gbTotalEl.style.color = "#38bdf8"; 
+                setTimeout(() => gbTotalEl.style.color = "#ffffff", 300);
+            }
         }
       }, 5000 + Math.random() * 5000);
     })();
