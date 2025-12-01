@@ -653,6 +653,16 @@
         animation: floatPillMobile 4s ease-in-out infinite !important;
       }
 
+      /* Hide "System Online" text on mobile to save space */
+      .status-text {
+        display: none;
+      }
+      
+      /* Hide the first divider on mobile since text is gone */
+      .status-pill .pill-divider:nth-of-type(1) {
+        display: none;
+      }
+
       /* Preloader Responsive Tweaks */
       .preloader-inner {
         padding: 26px 24px;
@@ -983,6 +993,25 @@
             setTimeout(() => totalMembersEl.style.color = "#ffffff", 300);
         }
       }, 5000 + Math.random() * 5000);
+    })();
+
+    // --- NEW GROUP BUY TICKER (Top Left) ---
+    (function () {
+      const gbActiveEl = document.getElementById("gbActive");
+      
+      // Removed gbTotalEl since it is no longer in the DOM
+      if (!gbActiveEl) return;
+
+      // Group Buy numbers
+      let gbActive = 150; 
+      
+      setInterval(() => {
+        const delta = Math.floor(Math.random() * 6) - 3;
+        gbActive = Math.max(50, gbActive + delta);
+        gbActiveEl.textContent = gbActive.toLocaleString();
+      }, 4000 + Math.random() * 2000);
+
+      // Removed loop for Total Members since element is gone
     })();
   </script>
 </body>
