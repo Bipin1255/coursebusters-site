@@ -288,17 +288,6 @@
         0 0 40px rgba(0, 240, 255, 0.4);
     }
 
-    .cursor {
-      opacity: 1;
-      animation: blink 0.8s step-end infinite;
-      color: rgba(0, 240, 255, 0.9);
-    }
-
-    @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
-    }
-
     /* Content */
     .content {
       position: relative;
@@ -562,7 +551,7 @@
         transform: translateX(-50%);
       }
       .brand-name { font-size: 1.25rem; }
-      .cursor { font-size: 1.25rem; }
+      /* Cursor styling removed */
       .text-line1 { font-size: 2.2rem; }
       .text-line2 { font-size: 1.6rem; }
       .access-button {
@@ -603,7 +592,6 @@
 
     @media (max-width: 480px) {
       .brand-name { font-size: 1rem; }
-      .cursor { font-size: 1rem; }
       .text-line1 { font-size: 1.6rem; }
       .text-line2 { font-size: 1.2rem; }
       .access-button {
@@ -647,7 +635,8 @@
     <!-- Header with logo -->
     <header class="header">
       <div class="header-logo">
-        <span class="brand-name"><span id="typed-text"></span><span class="cursor">|</span></span>
+        <!-- REMOVED CURSOR SPAN -->
+        <span class="brand-name">COURSEBUSTERS</span>
       </div>
     </header>
 
@@ -748,43 +737,6 @@
         setTimeout(hidePreloader, 500);
       }, 6000);
     })();
-
-    // Typing effect
-    const fullText = "COURSEBUSTERS";
-    const typedTextElement = document.getElementById("typed-text");
-    let currentIndex = 0;
-    let lastTime = 0;
-    let isTyping = true;
-    let pauseTime = 0;
-    const typingSpeed = 150; 
-    const pauseDuration = 2500; 
-    
-    function typeAnimation(timestamp) {
-      if (!lastTime) lastTime = timestamp;
-      const elapsed = timestamp - lastTime;
-      
-      if (isTyping) {
-        if (elapsed >= typingSpeed) {
-          if (currentIndex <= fullText.length) {
-            typedTextElement.textContent = fullText.slice(0, currentIndex);
-            currentIndex++;
-            lastTime = timestamp;
-          } else {
-            isTyping = false;
-            pauseTime = timestamp;
-          }
-        }
-      } else {
-        if (timestamp - pauseTime >= pauseDuration) {
-          currentIndex = 0;
-          isTyping = true;
-          lastTime = timestamp;
-        }
-      }
-      
-      requestAnimationFrame(typeAnimation);
-    }
-    requestAnimationFrame(typeAnimation);
 
     // --- NEW PARTICLE SYSTEM (Blue Network Style) ---
     const canvas = document.getElementById("canvas");
