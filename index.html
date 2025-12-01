@@ -263,16 +263,14 @@
       opacity: 1;
     }
 
-    /* Header (Top Left) */
+    /* Header (Top Left Logo) */
     .header {
       position: fixed;
       top: 30px;
       left: 30px;
       z-index: 100;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 20px; /* Space between logo and buy section */
+      align-items: center;
     }
 
     .header-logo {
@@ -293,13 +291,19 @@
 
     /* Buy Group Container */
     .buy-group {
+        /* Desktop: Fixed Bottom Right */
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: 101;
+        
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-end;
         gap: 8px;
     }
 
-    /* Header Buy Button - UPDATED STYLE to match Main Button */
+    /* Header Buy Button Style */
     .header-buy-button {
       position: relative;
       display: inline-flex;
@@ -374,7 +378,6 @@
       align-items: center;
       gap: 64px; 
       opacity: 1;
-      transform: translateY(0);
     }
 
     /* Logo */
@@ -422,101 +425,6 @@
     @keyframes floatText {
       0%, 100% { transform: translateY(0px) scale(1); }
       50% { transform: translateY(-15px) scale(1.05); }
-    }
-
-    /* --- FIXED STATUS PILL STYLES (Bottom Right - Main Stats) --- */
-    .status-pill {
-      position: fixed; 
-      bottom: 40px;
-      right: 40px;
-      z-index: 100;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      padding: 10px 24px;
-      white-space: nowrap;
-      
-      background: rgba(10, 20, 40, 0.4); 
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      
-      border: 1px solid rgba(0, 240, 255, 0.9);
-      border-radius: 99px;
-      
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-      
-      box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.9), 
-        0 0 20px rgba(0, 240, 255, 0.3), 
-        inset 0 0 15px rgba(0, 240, 255, 0.1);
-        
-      animation: floatPill 5s ease-in-out infinite;
-      transition: all 0.3s ease;
-    }
-    
-    .status-pill:hover {
-      border-color: rgba(0, 240, 255, 0.5);
-      box-shadow: 
-        0 10px 35px rgba(0, 0, 0, 0.4),
-        0 0 25px rgba(0, 240, 255, 0.25),
-        inset 0 0 20px rgba(0, 240, 255, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .status-pill strong {
-      color: #ffffff;
-      font-weight: 600;
-      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #00ff88;
-      box-shadow: 0 0 12px rgba(0, 255, 136, 0.8);
-      animation: pulseDot 2s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-    
-    .status-icon {
-      width: 16px;
-      height: 16px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      opacity: 0.8;
-      transform: translateY(1px);
-    }
-
-    .pill-divider {
-      width: 1px;
-      height: 14px;
-      background: rgba(255, 255, 255, 0.15);
-      flex-shrink: 0;
-    }
-
-    @keyframes floatPill {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    @keyframes floatPillMobile {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-4px); } 
-    }
-
-    @keyframes pulseDot {
-      0% { opacity: 1; box-shadow: 0 0 12px rgba(0, 255, 136, 0.8); }
-      50% { opacity: 0.5; box-shadow: 0 0 4px rgba(0, 255, 136, 0.4); }
-      100% { opacity: 1; box-shadow: 0 0 12px rgba(0, 255, 136, 0.8); }
     }
 
     /* Access Button */
@@ -627,10 +535,15 @@
         width: 100%;
         gap: 16px;
       }
+      
+      .brand-name { font-size: 1.25rem; }
+      
+      /* Mobile: Buy Group becomes static and moves below main button */
       .buy-group {
+        position: static;
+        margin-top: 24px;
         align-items: center;
       }
-      .brand-name { font-size: 1.25rem; }
       
       .text-line1 { font-size: 2.2rem; }
       .text-line2 { font-size: 1.6rem; }
@@ -639,29 +552,6 @@
         font-size: 1rem;
       }
       .content { gap: 36px; }
-      
-      /* Mobile Pill Positioning: FORCED CENTER BOTTOM */
-      .status-pill {
-        bottom: 80px !important;
-        right: auto !important;
-        left: 50% !important;
-        padding: 8px 16px;
-        gap: 12px;
-        font-size: 0.75rem;
-        max-width: 90vw;
-        background: rgba(10, 20, 40, 0.8);
-        animation: floatPillMobile 4s ease-in-out infinite !important;
-      }
-
-      /* Hide "System Online" text on mobile to save space */
-      .status-text {
-        display: none;
-      }
-      
-      /* Hide the first divider on mobile since text is gone */
-      .status-pill .pill-divider:nth-of-type(1) {
-        display: none;
-      }
 
       /* Preloader Responsive Tweaks */
       .preloader-inner {
@@ -716,18 +606,10 @@
     <!-- Particle canvas -->
     <canvas id="canvas" class="canvas"></canvas>
 
-    <!-- Header with logo and NEW Buy Button + Stats -->
+    <!-- Header with logo -->
     <header class="header">
       <div class="header-logo">
         <span class="brand-name">COURSEBUSTERS</span>
-      </div>
-
-      <!-- NEW: Group Buy Section -->
-      <div class="buy-group">
-          <!-- UPDATED LINK HERE -->
-          <a href="https://t.me/+yKLCiCBOrNZmZmU0" target="_blank" rel="noopener noreferrer" class="header-buy-button">
-            GBUY ACCESS
-          </a>
       </div>
     </header>
 
@@ -749,36 +631,14 @@
       >
         GEt access here
       </a>
-    </div>
 
-    <!-- MAIN Live Counter Pill (Bottom Right) -->
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      <span class="status-text">System Online</span>
-      
-      <span class="pill-divider"></span>
-      
-      <!-- Active Users -->
-      <span style="display:flex; align-items:center; gap:6px;">
-        <svg class="status-icon" viewBox="0 0 24 24">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-          <circle cx="12" cy="7" r="4"></circle>
-        </svg>
-        <span><strong id="activeUsers">1,240</strong> active</span>
-      </span>
-      
-      <span class="pill-divider"></span>
-      
-      <!-- Total Members -->
-      <span style="display:flex; align-items:center; gap:6px;">
-        <svg class="status-icon" viewBox="0 0 24 24">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-        </svg>
-        <span><strong id="totalMembers">45,200</strong> members</span>
-      </span>
+      <!-- NEW: Group Buy Section (Fixed Bottom-Right on Desktop, Below Button on Mobile) -->
+      <div class="buy-group">
+          <!-- UPDATED LINK HERE -->
+          <a href="https://t.me/+yKLCiCBOrNZmZmU0" target="_blank" rel="noopener noreferrer" class="header-buy-button">
+            GBUY ACCESS
+          </a>
+      </div>
     </div>
   </div>
 
@@ -965,35 +825,6 @@
     button.addEventListener("mouseleave", () => {
       button.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
     });
-
-    // --- MAIN STATS TICKER (Bottom Right) ---
-    (function () {
-      const activeUsersEl = document.getElementById("activeUsers");
-      const totalMembersEl = document.getElementById("totalMembers");
-      if (!activeUsersEl || !totalMembersEl) return;
-
-      // UPDATED: Based on your screenshots (1626 Viewing)
-      let activeBase = 1626; 
-      setInterval(() => {
-        // Fluctuate viewing members slightly (Live feel)
-        const delta = Math.floor(Math.random() * 20) - 10;
-        let displayValue = activeBase + delta;
-        activeUsersEl.textContent = displayValue.toLocaleString();
-      }, 3000 + Math.random() * 3000);
-
-      // UPDATED: Based on your screenshots (45,366 Members)
-      let totalBase = 45366;
-      setInterval(() => {
-        // Simulate Growth: Only increases, never decreases
-        if (Math.random() > 0.3) {
-            totalBase += 1;
-            totalMembersEl.textContent = totalBase.toLocaleString();
-            totalMembersEl.style.transition = "color 0.2s";
-            totalMembersEl.style.color = "#00ff88"; 
-            setTimeout(() => totalMembersEl.style.color = "#ffffff", 300);
-        }
-      }, 5000 + Math.random() * 5000);
-    })();
 
     // --- NEW GROUP BUY TICKER (Top Left) ---
     (function () {
