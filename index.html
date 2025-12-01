@@ -361,7 +361,7 @@
       50% { transform: translateY(-15px) scale(1.05); }
     }
 
-    /* --- MOVED STATUS PILL STYLES (Bottom Right) --- */
+    /* --- MOVED STATUS PILL STYLES (Bottom Right for Desktop) --- */
     .status-pill {
       /* Positioning: Bottom Right */
       position: absolute;
@@ -567,12 +567,12 @@
       }
       .content { gap: 36px; }
       
-      /* Mobile Pill Positioning */
+      /* Mobile Pill Positioning: FORCED CENTER BOTTOM */
       .status-pill {
-        bottom: 24px;
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: 24px !important;
+        right: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
         padding: 8px 16px;
         gap: 12px;
         font-size: 0.75rem;
@@ -663,7 +663,7 @@
       </a>
     </div>
 
-    <!-- Live Counter Pill (Moved to Bottom Right) -->
+    <!-- Live Counter Pill (Moved to Bottom Right for desktop, Bottom Center for mobile) -->
     <div class="status-pill">
       <span class="status-dot"></span>
       <span class="status-text">System Online</span>
