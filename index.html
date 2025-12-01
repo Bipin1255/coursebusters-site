@@ -317,6 +317,7 @@
       text-transform: uppercase;
       text-decoration: none;
       cursor: pointer;
+      text-align: center; /* Center text if wrapped */
       
       /* Glassmorphism Style Match */
       color: #ffffff;
@@ -540,15 +541,23 @@
       
       .brand-name { font-size: 1.25rem; }
       
-      /* Mobile: Buy Group positioned fixed at the bottom center */
+      /* Mobile: Buy Group positioned fixed at the bottom center (Centered Robustly) */
       .buy-group {
         position: fixed;
-        bottom: 50px; /* Sits almost at the bottom */
-        left: 50%;
-        right: auto; /* Override desktop right positioning */
-        transform: translateX(-50%);
+        bottom: 40px; /* Sits at the bottom */
+        left: 0;
+        right: auto; 
+        width: 100%; /* Full width for proper centering */
+        transform: none; /* No translation needed */
         margin-top: 0;
+        display: flex;
+        justify-content: center; /* Center Flex Items */
         align-items: center;
+        pointer-events: none; /* Allow clicks through the full-width container */
+      }
+      
+      .header-buy-button {
+        pointer-events: auto; /* Re-enable clicks for the button */
       }
       
       .text-line1 { font-size: 2.2rem; }
