@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CourseBusters - Access</title>
   <meta name="description" content="CourseBusters Telegram Entry Portal">
-  <!-- Replaced broken character with a graduation cap emoji for the favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
   <style>
     /* Reset & Base */
@@ -22,7 +21,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
 
-    /* --- PRELOADER STYLES (Unchanged) --- */
+    /* --- UPDATED PRELOADER STYLES (MATCHING BLUE IMAGE) --- */
     .preloader {
       position: fixed;
       inset: 0;
@@ -30,6 +29,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      /* Deep Navy Background */
       background: radial-gradient(
         circle at top,
         #0f172a 0%,
@@ -47,15 +47,15 @@
       inset: -40%;
       background: radial-gradient(
           circle at 0% 0%,
-          rgba(6, 182, 212, 0.15),
+          rgba(6, 182, 212, 0.1),
           transparent 55%
         ),
         radial-gradient(
           circle at 100% 100%,
-          rgba(59, 130, 246, 0.2),
+          rgba(59, 130, 246, 0.15),
           transparent 55%
         );
-      opacity: 0.9;
+      opacity: 0.8;
       mix-blend-mode: screen;
       pointer-events: none;
     }
@@ -65,23 +65,24 @@
       visibility: hidden;
     }
 
-    /* Preloader inner panel */
+    /* Preloader inner panel - Blue Glass Style */
     .preloader-inner {
       position: relative;
       padding: 32px 36px;
-      border-radius: 24px;
+      border-radius: 20px;
+      /* Darker Blue Glass Background */
       background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.1),
-        rgba(15, 23, 42, 0.9)
+        rgba(30, 41, 59, 0.7),
+        rgba(15, 23, 42, 0.95)
       );
-      backdrop-filter: blur(26px) saturate(220%);
-      -webkit-backdrop-filter: blur(26px) saturate(220%);
-      border: 1px solid rgba(6, 182, 212, 0.3); /* Cyan tint */
-      box-shadow: 0 24px 60px rgba(2, 6, 23, 0.95),
-        0 0 55px rgba(6, 182, 212, 0.2),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2),
-        inset 0 -1px 1px rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      /* Cyan/Blue Border Tint */
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 24px 60px rgba(2, 6, 23, 0.8),
+        0 0 40px rgba(14, 165, 233, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
       width: min(460px, 92vw);
       overflow: hidden;
       animation: glassFloat 4.5s ease-in-out infinite;
@@ -90,17 +91,18 @@
     .preloader-inner::before {
       content: "COURSEBUSTERS GATEWAY";
       position: absolute;
-      top: 14px;
-      right: 22px;
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      top: 16px;
+      right: 24px;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: rgba(6, 182, 212, 0.9);
-      text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+      color: #38bdf8; /* Sky Blue */
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
       z-index: 2;
     }
 
     .preloader-inner::after {
+      /* Subtle light sweep */
       content: "";
       position: absolute;
       top: -40%;
@@ -109,70 +111,84 @@
       height: 80%;
       background: radial-gradient(
         circle at top,
-        rgba(255, 255, 255, 0.5),
+        rgba(56, 189, 248, 0.2),
         transparent 60%
       );
-      opacity: 0.5;
+      opacity: 0.4;
       mix-blend-mode: screen;
       pointer-events: none;
     }
 
     @keyframes glassFloat {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-6px) scale(1.01); }
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-6px) scale(1.01);
+      }
     }
 
     .preloader-title {
       font-size: 0.95rem;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 20px;
-      color: #e2e8f0;
+      margin-bottom: 24px;
+      color: #f1f5f9;
       display: flex;
       align-items: center;
-      gap: 10px;
-      text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+      gap: 12px;
+      text-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
       position: relative;
       z-index: 2;
     }
 
+    /* Blue Dot */
     .preloader-title::before {
       content: "";
       width: 12px;
       height: 12px;
-      border-radius: 999px;
-      background: #06b6d4;
-      box-shadow: 0 0 12px rgba(6, 182, 212, 0.9);
-      animation: pulseDot 2s infinite;
+      border-radius: 50%;
+      background: #0ea5e9;
+      box-shadow: 0 0 12px #0ea5e9;
+      animation: pulseBlue 2s infinite;
+    }
+
+    @keyframes pulseBlue {
+      0% { opacity: 1; box-shadow: 0 0 12px #0ea5e9; }
+      50% { opacity: 0.6; box-shadow: 0 0 4px #0ea5e9; }
+      100% { opacity: 1; box-shadow: 0 0 12px #0ea5e9; }
     }
 
     .preloader-progress {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       margin-bottom: 8px;
-      color: rgba(148, 163, 184, 0.9);
+      color: #94a3b8;
       position: relative;
       z-index: 2;
     }
 
     .preloader-percent {
       font-variant-numeric: tabular-nums;
-      color: #22d3ee;
-      text-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+      color: #38bdf8; /* Cyan Text */
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
     }
 
     .preloader-bar {
       position: relative;
       width: 100%;
-      height: 4px;
+      height: 6px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.8);
+      background: rgba(15, 23, 42, 0.6);
       overflow: hidden;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.1);
     }
 
     .preloader-bar-fill {
@@ -180,30 +196,49 @@
       inset: 0;
       border-radius: inherit;
       width: 0%;
-      background: linear-gradient(90deg, #0891b2, #22d3ee, #0891b2);
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+      /* CYAN GRADIENT */
+      background: linear-gradient(90deg, #0ea5e9, #22d3ee, #0ea5e9);
+      box-shadow: 0 0 20px rgba(14, 165, 233, 0.5);
       transition: width 0.12s ease-out;
     }
 
+    .preloader-bar-fill::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+      );
+      transform: skewX(-20deg);
+      opacity: 0.5;
+    }
+
     .preloader-subtext {
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(148, 163, 184, 0.8);
-      margin-top: 6px;
+      color: #64748b;
+      margin-top: 8px;
       display: flex;
       justify-content: space-between;
       position: relative;
       z-index: 2;
     }
-    
-    .preloader-subtext span:last-child {
-       color: #22d3ee;
-    }
 
+    .preloader-subtext span:last-child {
+      color: #38bdf8; /* Cyan Text */
+      font-weight: 600;
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
     /* --- END PRELOADER STYLES --- */
 
-    /* Main Container - Updated for Cosmic Vibe */
+    /* Main Container */
     .container {
       min-height: 100vh;
       display: flex;
@@ -211,8 +246,7 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      /* Deep Cosmic Blue Background Base */
-      background: radial-gradient(circle at center, #111a36 0%, #020617 70%, #000000 100%);
+      background-color: #050a14;
       cursor: none;
     }
 
@@ -228,18 +262,7 @@
       transform: translate(-50%, -50%);
       object-fit: cover;
       z-index: 1;
-      opacity: 0.45; /* Slightly visible to provide texture */
-      mix-blend-mode: lighten;
-    }
-    
-    /* Overlay Gradient for more "Blue/Cyan Nebula" feel */
-    .container::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.15), transparent 60%);
-        pointer-events: none;
-        z-index: 1;
+      opacity: 0.5;
     }
 
     /* Particle Canvas */
@@ -267,18 +290,19 @@
     }
 
     .brand-name {
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
       color: #ffffff;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+      text-shadow: 
+        0 0 20px rgba(0, 240, 255, 0.6),
+        0 0 40px rgba(0, 240, 255, 0.4);
     }
 
     .cursor {
       opacity: 1;
       animation: blink 0.8s step-end infinite;
-      color: #22d3ee;
+      color: rgba(0, 240, 255, 0.9);
     }
 
     @keyframes blink {
@@ -293,21 +317,27 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 32px; /* Tighter spacing like the reference */
+      gap: 48px;
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Logo - Updated to match the bold glowing look */
+    /* Logo */
     .logo {
-      animation: breathe 5s ease-in-out infinite;
+      animation: breathe 4s ease-in-out infinite;
+      filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.25));
       perspective: 1000px;
-      margin-bottom: 10px;
     }
 
     @keyframes breathe {
-      0%, 100% { transform: scale(1); filter: brightness(1); }
-      50% { transform: scale(1.02); filter: brightness(1.1); }
+      0%, 100% {
+        opacity: 0.85;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.02);
+      }
     }
 
     /* Animated Text Logo */
@@ -315,165 +345,240 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 12px;
       perspective: 1000px;
     }
 
     .text-line1, .text-line2 {
-      font-weight: 800; /* Bolder */
-      letter-spacing: 0.05em;
+      font-weight: 900;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #ffffff;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      text-shadow: 
+        0 0 30px rgba(0, 240, 255, 1),
+        0 0 60px rgba(0, 240, 255, 1),
+        0 4px 16px rgba(0, 0, 0, 1);
     }
 
     .text-line1 {
-      font-size: 3.5rem; /* Larger */
-      /* Strong Cyan Glow */
-      text-shadow: 
-        0 0 10px rgba(6, 182, 212, 0.8),
-        0 0 30px rgba(6, 182, 212, 0.4),
-        0 0 60px rgba(6, 182, 212, 0.2);
+      font-size: 3rem;
+      animation: floatText 3s ease-in-out infinite;
     }
 
     .text-line2 {
-      font-size: 2rem;
-      color: #e2e8f0;
-      text-shadow: 
-        0 0 15px rgba(255, 255, 255, 0.3);
+      font-size: 2.2rem;
+      animation: floatText 3s ease-in-out infinite 0.5s;
     }
-    
-    /* VIBE MATCH: Status Pill */
+
+    @keyframes floatText {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-15px) scale(1.05);
+      }
+    }
+
+    /* Status Pill */
     .status-pill {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 12px 32px;
+      gap: 16px;
+      padding: 10px 24px;
       white-space: nowrap;
       
-      /* Dark semi-transparent background */
-      background: rgba(2, 6, 23, 0.7); 
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(10, 20, 40, 0.2); 
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       
-      /* Cyan Border */
-      border: 1px solid rgba(34, 211, 238, 0.6);
+      border: 1px solid rgba(0, 240, 255, 0.9);
       border-radius: 99px;
       
-      color: #e2e8f0;
-      font-size: 0.9rem;
-      letter-spacing: 0.03em;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
       font-weight: 500;
+      margin-top: -20px;
+      margin-bottom: -10px;
       
-      /* Subtle outer glow */
       box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.5), 
-        0 0 15px rgba(34, 211, 238, 0.2), 
-        inset 0 0 20px rgba(34, 211, 238, 0.05);
+        0 10px 30px rgba(0, 0, 0, 0.9), 
+        0 0 20px rgba(0, 240, 255, 0.3), 
+        inset 0 0 15px rgba(0, 240, 255, 0.1);
         
+      animation: floatPill 5s ease-in-out infinite;
       transition: all 0.3s ease;
     }
     
     .status-pill:hover {
-      border-color: rgba(34, 211, 238, 0.9);
+      border-color: rgba(0, 240, 255, 0.5);
       box-shadow: 
-        0 4px 25px rgba(0, 0, 0, 0.6),
-        0 0 25px rgba(34, 211, 238, 0.3);
+        0 10px 35px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(0, 240, 255, 0.25),
+        inset 0 0 20px rgba(0, 240, 255, 0.1);
+      transform: translateY(-2px);
     }
 
     .status-pill strong {
       color: #ffffff;
-      font-weight: 700;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 
     .status-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: #22c55e; /* Green for online */
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+      background-color: #00ff88;
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.8);
       animation: pulseDot 2s ease-in-out infinite;
+      flex-shrink: 0;
     }
     
     .status-icon {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       fill: none;
-      stroke: #22d3ee; /* Cyan icons */
-      stroke-width: 2;
+      stroke: currentColor;
+      stroke-width: 2.5;
       stroke-linecap: round;
       stroke-linejoin: round;
-      opacity: 0.9;
+      opacity: 0.8;
+      transform: translateY(1px);
     }
 
     .pill-divider {
       width: 1px;
-      height: 16px;
-      background: rgba(34, 211, 238, 0.3); /* Cyan divider */
+      height: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    @keyframes floatPill {
+      0%, 100% { 
+        transform: translateY(0);
+        box-shadow: 
+          0 10px 30px rgba(0, 0, 0, 0.3),
+          0 0 20px rgba(0, 240, 255, 0.15),
+          inset 0 0 15px rgba(0, 240, 255, 0.05);
+      }
+      50% { 
+        transform: translateY(-6px);
+        box-shadow: 
+          0 15px 35px rgba(0, 0, 0, 0.2),
+          0 0 25px rgba(0, 240, 255, 0.2),
+          inset 0 0 15px rgba(0, 240, 255, 0.08);
+      }
     }
 
     @keyframes pulseDot {
-      0% { opacity: 1; box-shadow: 0 0 10px rgba(34, 197, 94, 0.8); }
-      50% { opacity: 0.5; box-shadow: 0 0 4px rgba(34, 197, 94, 0.4); }
-      100% { opacity: 1; box-shadow: 0 0 10px rgba(34, 197, 94, 0.8); }
+      0% { opacity: 1; box-shadow: 0 0 12px rgba(0, 255, 136, 0.8); }
+      50% { opacity: 0.5; box-shadow: 0 0 4px rgba(0, 255, 136, 0.4); }
+      100% { opacity: 1; box-shadow: 0 0 12px rgba(0, 255, 136, 0.8); }
     }
 
-    /* VIBE MATCH: Access Button */
+    /* Access Button */
     .access-button {
       position: relative;
       display: inline-block;
-      padding: 16px 64px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      padding: 18px 56px;
+      font-size: 1.125rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #0f172a; /* Dark text on bright button */
-      
-      /* Filled Gradient Background - Liquid Cyan */
-      background: linear-gradient(180deg, #67e8f9 0%, #22d3ee 50%, #06b6d4 100%);
-      
-      border: none;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(0, 240, 255, 0.3);
       border-radius: 50px;
       text-decoration: none;
       cursor: pointer;
       overflow: hidden;
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      
-      /* Glowing Shadow */
       box-shadow:
-        0 0 20px rgba(34, 211, 238, 0.5),
-        0 4px 10px rgba(0,0,0,0.3);
-        
+        0 8px 32px rgba(0, 240, 255, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
       transform-style: preserve-3d;
       will-change: transform;
-      margin-top: 10px;
+      animation: buttonFloat 3s ease-in-out infinite;
     }
-    
-    /* Inner highlight */
+
     .access-button::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 40%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
-      border-radius: 50px 50px 100% 100%;
+      top: -50%;
+      left: -150%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        transparent 40%,
+        rgba(0, 240, 255, 0.4) 50%,
+        transparent 60%,
+        transparent
+      );
+      transform: skewX(-25deg);
+      animation: shimmer 4s ease-in-out infinite;
       pointer-events: none;
     }
 
+    @keyframes shimmer {
+      0% { left: -150%; }
+      50%, 100% { left: 150%; }
+    }
+
+    @keyframes buttonFloat {
+      0%, 100% {
+        transform: translateY(0px) rotateX(0deg);
+      }
+      50% {
+        transform: translateY(-8px) rotateX(2deg);
+      }
+    }
+
+    .access-button::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 54px;
+      background: linear-gradient(45deg, rgba(0, 240, 255, 0.6), rgba(0, 140, 255, 0.6), rgba(0, 240, 255, 0.6));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      filter: blur(12px);
+      z-index: -1;
+    }
+
     .access-button:hover {
-      transform: translateY(-2px) scale(1.02);
+      background: rgba(0, 240, 255, 0.1);
       box-shadow:
-        0 0 35px rgba(34, 211, 238, 0.7),
-        0 6px 15px rgba(0,0,0,0.4);
-      filter: brightness(1.1);
+        0 12px 40px rgba(0, 240, 255, 0.4),
+        0 0 20px rgba(0, 240, 255, 0.2);
+      animation: buttonFloat 1.5s ease-in-out infinite;
+      transform: translateY(-4px);
+    }
+
+    .access-button:hover::after {
+      opacity: 1;
+      animation: glowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
     }
 
     .access-button:active {
-      transform: scale(0.98);
-      filter: brightness(0.9);
+      animation: bounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes bounce {
+      0% { transform: scale(1); }
+      30% { transform: scale(0.97); }
+      60% { transform: scale(1.03); }
+      100% { transform: scale(1); }
     }
 
     /* Responsive */
@@ -481,44 +586,51 @@
       .header {
         left: 50%;
         transform: translateX(-50%);
-        width: 100%;
-        display: flex;
-        justify-content: center;
       }
-      .text-line1 { font-size: 2.5rem; }
-      .text-line2 { font-size: 1.5rem; }
+      .brand-name { font-size: 1.25rem; }
+      .cursor { font-size: 1.25rem; }
+      .text-line1 { font-size: 2.2rem; }
+      .text-line2 { font-size: 1.6rem; }
       .access-button {
-        padding: 14px 48px;
-        font-size: 0.9rem;
+        padding: 14px 42px;
+        font-size: 1rem;
       }
-      .content { gap: 28px; }
+      .content { gap: 36px; }
       
       .status-pill {
-        padding: 10px 20px;
+        margin-top: -10px;
+        margin-bottom: 0px;
+        padding: 8px 16px;
         gap: 12px;
-        font-size: 0.8rem;
-        max-width: 95vw;
-        border-radius: 16px; /* slightly less round on mobile for space */
+        font-size: 0.75rem;
+        max-width: 90vw;
       }
-      .status-icon {
-        width: 14px;
-        height: 14px;
+
+      /* Preloader Responsive Tweaks */
+      .preloader-inner {
+        padding: 26px 24px;
+        border-radius: 20px;
+      }
+      .preloader-title {
+        font-size: 0.8rem;
+      }
+      .preloader-inner::before {
+        display: none;
       }
     }
 
     @media (max-width: 480px) {
-      .text-line1 { font-size: 2rem; }
+      .brand-name { font-size: 1rem; }
+      .cursor { font-size: 1rem; }
+      .text-line1 { font-size: 1.6rem; }
       .text-line2 { font-size: 1.2rem; }
       .access-button {
-        padding: 12px 40px;
+        padding: 12px 36px;
+        font-size: 0.9375rem;
       }
-      .content { gap: 24px; }
+      .content { gap: 28px; }
       
       .status-text { display: none; }
-      .status-pill {
-          gap: 10px;
-          padding: 10px 16px;
-      }
     }
   </style>
 </head>
@@ -553,7 +665,7 @@
     <!-- Header with logo -->
     <header class="header">
       <div class="header-logo">
-        <span class="brand-name"><span id="typed-text"></span><span class="cursor">_</span></span>
+        <span class="brand-name"><span id="typed-text"></span><span class="cursor">|</span></span>
       </div>
     </header>
 
@@ -573,7 +685,7 @@
         
         <span class="pill-divider"></span>
         
-        <!-- Active Users: SVG Icon -->
+        <!-- Active Users: Replaced broken character with SVG Icon -->
         <span style="display:flex; align-items:center; gap:6px;">
           <svg class="status-icon" viewBox="0 0 24 24">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
@@ -584,7 +696,7 @@
         
         <span class="pill-divider"></span>
         
-        <!-- Total Members: SVG Icon -->
+        <!-- Total Members: Replaced broken character with SVG Icon -->
         <span style="display:flex; align-items:center; gap:6px;">
           <svg class="status-icon" viewBox="0 0 24 24">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -603,7 +715,7 @@
         rel="noopener noreferrer"
         class="access-button"
       >
-        GET ACCESS HERE
+        GEt access here
       </a>
     </div>
   </div>
@@ -645,7 +757,7 @@
         setTimeout(hidePreloader, 500);
       });
 
-      // Fallback
+      // Fallback in case load takes too long / video blocked
       setTimeout(() => {
         if (loaded) return;
         loaded = true;
@@ -692,7 +804,7 @@
     }
     requestAnimationFrame(typeAnimation);
 
-    // --- PARTICLE SYSTEM ---
+    // --- NEW PARTICLE SYSTEM (Blue Network Style) ---
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const button = document.getElementById("access-button");
@@ -702,18 +814,20 @@
     let mouseX = -1000;
     let mouseY = -1000;
 
+    // Config matches the "CourseBusters" reference vibe
     const CONFIG = {
-      count: 90, 
-      distance: 140, 
+      count: 90, // Number of nodes
+      distance: 140, // Max distance for lines
       radius: 1.5,
       speed: 0.5,
-      color: "34, 211, 238", // CYAN color channel to match vibe
+      color: "0, 240, 255", // CYAN color channel
     };
 
     function resize() {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
       
+      // Adjust count for mobile
       if (width < 768) {
         CONFIG.count = 45;
         CONFIG.distance = 100;
@@ -744,13 +858,14 @@
       mouseY = e.clientY;
     });
 
+    // Custom cursor trail (Blue)
     const cursorTrail = [];
     const maxTrailLength = 25;
 
     function animate() {
       ctx.clearRect(0, 0, width, height);
 
-      // Cursor Trail
+      // 1. Draw Cursor Trail
       cursorTrail.unshift({ x: mouseX, y: mouseY, opacity: 1 });
       if (cursorTrail.length > maxTrailLength) cursorTrail.pop();
 
@@ -767,16 +882,19 @@
         point.opacity *= 0.92;
       });
 
-      // Particles
+      // 2. Draw Particles & Connections
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         
+        // Move
         p.x += p.vx;
         p.y += p.vy;
 
+        // Bounce
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
+        // Mouse Repulsion (Subtle)
         const dx = mouseX - p.x;
         const dy = mouseY - p.y;
         const distMouse = Math.sqrt(dx*dx + dy*dy);
@@ -786,11 +904,13 @@
             p.y -= (dy / distMouse) * force * 1.5;
         }
 
+        // Draw particle
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${CONFIG.color}, 0.8)`;
         ctx.fill();
 
+        // Connections
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx2 = p.x - p2.x;
@@ -811,10 +931,11 @@
       requestAnimationFrame(animate);
     }
 
+    // Init
     resize();
     animate();
 
-    // 3D tilt
+    // 3D tilt effect for button
     button.addEventListener("mousemove", (e) => {
       const rect = button.getBoundingClientRect();
       const x = e.clientX - rect.left;
