@@ -534,14 +534,20 @@
         align-items: center;
         width: 100%;
         gap: 16px;
+        /* Fix: Added padding so logo doesn't stick to the edge */
+        padding-left: 30px; 
       }
       
       .brand-name { font-size: 1.25rem; }
       
-      /* Mobile: Buy Group becomes static and moves below main button */
+      /* Mobile: Buy Group positioned fixed at the bottom center */
       .buy-group {
-        position: static;
-        margin-top: 24px;
+        position: fixed;
+        bottom: 50px; /* Sits almost at the bottom */
+        left: 50%;
+        right: auto; /* Override desktop right positioning */
+        transform: translateX(-50%);
+        margin-top: 0;
         align-items: center;
       }
       
