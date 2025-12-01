@@ -298,6 +298,14 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 8px; /* Gap between button and stats */
+      
+      /* Subtle float animation for desktop */
+      animation: floatGroupBuy 6s ease-in-out infinite;
+    }
+
+    @keyframes floatGroupBuy {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
     }
 
     .group-buy-button {
@@ -642,7 +650,16 @@
         top: 20px;
         right: 20px;
         align-items: flex-end; /* Keep aligned to right */
+        
+        /* Mobile specific animation for Group Buy Button */
+        animation: floatGroupBuyMobile 5s ease-in-out infinite;
       }
+      
+      @keyframes floatGroupBuyMobile {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+
       .group-buy-button {
         padding: 8px 16px;
         font-size: 0.7rem;
